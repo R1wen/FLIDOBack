@@ -1,0 +1,42 @@
+//Importation des dépendances
+const express = require("express");
+const mongoose = require("mongoose");
+const path = require("path");
+const logger = require("./middlewares/winston");
+
+//Création d'une instance de Express et configation de base de middlewares
+const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "../FrontFlido/views")));
+
+//Middelware pour les log d'accès aux pages
+app.use((req, res, next) => {
+  logger.info(`${req.method} ${req.url}`);
+  next();
+});
+
+/**
+ * Route principale : Route get pour afficher la page principale
+ * @param {Object} req - Requête Express
+ * @param {Object} res - Réponse Express
+ */
+app.get("/", async (req, res) => {
+  res.sendFile(path.join(__dirname, "../FrontFlido/views", "index.html"));
+});
+
+//Démarrage du serveur et connexion à la base de données MongoDB
+mongoose
+  .connect(process.env.DB_URL) //URL du serveur en variable d'environnement
+  .then(() => {
+    logger.info("Connected to MongoDB");
+    app.listen(3000, () => {
+      logger.info("Server is running on port 3000");
+    });
+  })
+  .catch((err) => {
+    logger.error("Failed to connect to MongoDB", err);
+  });
+
+//routes
+//app.use("/", authRoutes);
