@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
 const logger = require("./middlewares/winston");
+const authRoutes = require("./routes/authRoutes");
 
 //Création d'une instance de Express et configation de base de middlewares
 const app = express();
@@ -39,4 +40,4 @@ mongoose
   });
 
 //routes
-//app.use("/", authRoutes);
+app.use("/", authRoutes);
