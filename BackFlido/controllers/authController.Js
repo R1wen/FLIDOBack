@@ -29,12 +29,11 @@ module.exports.signup = async (req, res) => {
       email,
       password: hashedPassword,
     });
-    console.log(req.body);
 
     // Sauvegarder dans la base de données
     await newUser.save();
 
-    logger.info(`Utilisateur créer`, "userID: ", User._id);
+    logger.info(`Utilisateur créer`, "userID: ", newUser._id);
     res.status(201).json({ success: true });
   } catch (error) {
     logger.error("Erreur durant l'inscription", error);

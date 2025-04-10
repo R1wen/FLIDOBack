@@ -1,14 +1,19 @@
 const request = require("supertest");
 const express = require("express");
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
 const authRoutes = require("../routes/authRoutes");
 const User = require("../models/userModel");
+
+dotenv.config({ path: ".env.test" });
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/", authRoutes);
+
+jest.setTimeout(10000);
 
 jest.mock("bcrypt", () => ({
   hash: jest.fn().mockResolvedValue("hashedPassword"),
@@ -53,17 +58,17 @@ describe("Auth Routes", () => {
       expect(response.body.error).toBe("Tous les champs sont obligatoires.");
     });
 
-    it("should return 409 if email already exists", async () => {
+    it("should return 409 if email already exists", async (req,res) => {
       await request(app).post("/api/register").send({
         lastName: "TEST",
-        firstName: "user1",
+        firstName: "usera",
         email: "testuser1@gmail.com",
         password: "testpassword",
       });
 
       const response = await request(app).post("/api/register").send({
         lastName: "TEST",
-        firstName: "user1",
+        firstName: "usera",
         email: "testuser1@gmail.com",
         password: "testpassword",
       });
