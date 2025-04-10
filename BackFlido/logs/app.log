@@ -3,3 +3,51 @@
 2025-04-08 21:26:22 info: Connected to MongoDB
 2025-04-08 21:26:22 info: Server is running on port 3000
 2025-04-08 21:26:26 info: GET /favicon.ico
+2025-04-09 21:52:41 info: Connected to MongoDB
+2025-04-09 21:52:41 info: Server is running on port 3000
+2025-04-10 07:59:56 error: Failed to connect to MongoDB Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+2025-04-10 08:01:15 error: Failed to connect to MongoDB Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+2025-04-10 08:02:27 info: Connected to MongoDB
+2025-04-10 08:02:28 info: Server is running on port 3000
+2025-04-10 08:03:22 info: Connected to MongoDB
+2025-04-10 08:03:22 info: Server is running on port 3000
+2025-04-10 08:03:26 info: Connected to MongoDB
+2025-04-10 08:03:26 info: Server is running on port 3000
+2025-04-10 08:03:42 info: Connected to MongoDB
+2025-04-10 08:03:42 info: Server is running on port 3000
+2025-04-10 08:04:01 info: Connected to MongoDB
+2025-04-10 08:04:01 info: Server is running on port 3000
+2025-04-10 08:05:26 info: POST /api/register
+2025-04-10 08:05:26 warn: Erreur d'inscription: Champs manquants
+2025-04-10 08:06:27 info: Connected to MongoDB
+2025-04-10 08:06:27 info: Server is running on port 3000
+2025-04-10 08:06:44 info: Connected to MongoDB
+2025-04-10 08:06:44 info: Server is running on port 3000
+2025-04-10 08:06:52 info: POST /api/register
+2025-04-10 08:06:52 error: Erreur durant l'inscription User validation failed: firstname: Le prénom est obligatoire, lastname: Le nom est obligatoire
+2025-04-10 08:07:27 info: Connected to MongoDB
+2025-04-10 08:07:27 info: Server is running on port 3000
+2025-04-10 08:07:53 info: Connected to MongoDB
+2025-04-10 08:07:53 info: Server is running on port 3000
+2025-04-10 08:07:57 info: POST /api/register
+2025-04-10 08:07:58 error: Erreur durant l'inscription User validation failed: firstname: Le prénom est obligatoire, lastname: Le nom est obligatoire
+2025-04-10 08:09:03 info: Connected to MongoDB
+2025-04-10 08:09:03 info: Server is running on port 3000
+2025-04-10 08:09:10 info: POST /api/register
+2025-04-10 08:09:11 info: Utilisateur créer
+2025-04-10 08:09:35 info: Connected to MongoDB
+2025-04-10 08:09:35 info: Server is running on port 3000
+2025-04-10 08:09:49 info: Connected to MongoDB
+2025-04-10 08:09:49 info: Server is running on port 3000
+2025-04-10 08:10:17 info: POST /api/register
+2025-04-10 08:10:17 error: Erreur durant l'inscription User validation failed: password: Le mot de passe doit contenir au moins une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial
+2025-04-10 08:10:40 info: POST /api/register
+2025-04-10 08:10:41 error: Erreur durant l'inscription User validation failed: password: Le mot de passe doit contenir au moins une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial
+2025-04-10 08:11:23 info: POST /api/register
+2025-04-10 08:11:24 error: Erreur durant l'inscription User validation failed: password: Le mot de passe doit contenir au moins une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial
+2025-04-10 08:12:46 info: Connected to MongoDB
+2025-04-10 08:12:46 info: Server is running on port 3000
+2025-04-10 08:12:50 info: POST /api/register
+2025-04-10 08:12:51 info: Utilisateur créer
+2025-04-10 08:13:05 info: Connected to MongoDB
+2025-04-10 08:13:05 info: Server is running on port 3000

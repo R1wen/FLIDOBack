@@ -2,7 +2,7 @@ const validator = require("validator");
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
-  lastname: {
+  lastName: {
     type: String,
     required: [true, "Le nom est obligatoire"],
     trim: true,
@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema({
         "Le nom ne peut contenir que des lettres, espaces, apostrophes ou tirets",
     },
   },
-  firstname: {
+  firstName: {
     type: String,
     required: [true, "Le prénom est obligatoire"],
     trim: true,
@@ -50,12 +50,12 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: [true, "Le mot de passe est obligatoire"],
-    minlength: [6, "Le mot de passe doit contenir au moins 8 caractères"],
+    minlength: [6, "Le mot de passe doit contenir au moins 6 caractères"],
     validate: {
       validator: function (value) {
         return validator.matches(
           value,
-          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/
         );
       },
       message:

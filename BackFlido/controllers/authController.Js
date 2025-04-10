@@ -29,6 +29,7 @@ module.exports.signup = async (req, res) => {
       email,
       password: hashedPassword,
     });
+    console.log(req.body);
 
     // Sauvegarder dans la base de données
     await newUser.save();
