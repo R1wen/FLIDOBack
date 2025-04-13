@@ -20,7 +20,7 @@ app.use("/", authRoutes);
 jest.setTimeout(10000);
 
 /**
- * Mock de bcrypt pour renvoyer "hashedPassword" comme mot de passe
+ * Mock (simulation) de bcrypt pour renvoyer "hashedPassword" comme mot de passe
  * lors des tests, on teste les routes, pas bcrypt donc ca rend plus
  * simple
  */
