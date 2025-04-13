@@ -1,3 +1,5 @@
+// ****LANCEZ LE SERVEUR AVEC "npm run dev" !!!**** \\
+
 //Importation des dépendances
 const express = require("express");
 const mongoose = require("mongoose");
