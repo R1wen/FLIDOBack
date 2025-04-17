@@ -19,14 +19,9 @@ app.use((req, res, next) => {
   next();
 });
 
-/**
- * Route principale : Route get pour afficher la page principale
- * @param {Object} req - Requête Express
- * @param {Object} res - Réponse Express
- */
-app.get("/", async (req, res) => {
-  res.sendFile(path.join(__dirname, "../FrontFlido/views", "index.html"));
-});
+
+//routes
+app.use("/", authRoutes);
 
 //Démarrage du serveur et connexion à la base de données MongoDB
 mongoose
@@ -40,6 +35,3 @@ mongoose
   .catch((err) => {
     logger.error("Failed to connect to MongoDB", err);
   });
-
-//routes
-app.use("/", authRoutes);

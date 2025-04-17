@@ -8,6 +8,29 @@ const path = require("path");
 const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
 const logger = require("../middlewares/winston");
+const {OAuth2Client} = require('google-auth-library');
+const { get } = require("http");
+
+module.exports.accueil = async (req, res,next) => {
+  const code = req.query.code;
+  try{
+    const redirectUrl = 'http://127.0.0.1:3000/oauth'
+    const oAuth2Client = new OAuth2Client(
+      process.env.CLIENT_ID,
+      process.env.CLIENT_SECRET,
+      redirectUrl
+    );
+    const res = await oAuth2Client.getToken(code);
+    await oAuth2Client.setCredentials(res.tokens);
+    console.log('Tokens acquired:', res.tokens);
+    const user = oAuth2Client.credentials;
+    console.log('credentials', user);
+    await getUserData(user.access_token);
+  }catch(error){
+    console.error('Error with signing with google', error);
+  }
+}
+
 
 module.exports.signup = async (req, res) => {
   try {
@@ -55,3 +78,24 @@ module.exports.signup = async (req, res) => {
       .json({ error: "Erreur lors de la création de l'utilisateur." });
   }
 };
+
+module.exports.googleAuth = async (req, res, next) =>{
+  res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+  res.header('Referrer-Policy', 'no-referrer-when-downgrade');
+
+  const redirectUrl = 'http://127.0.0.1:3000/oauth'.at
+
+  const oAuth2Client = new OAuth2Client(
+    process.env.CLIENT_ID,
+    process.env.CLIENT_SECRET,
+    redirectUrl
+  );
+
+  const authorizeUrl = oAuth2Client.generateAuthUrl({
+    access_type: 'offline',
+    scope: 'https://www.googleapis.com/auth/userinfo.profile openid',
+    prompt: 'consent'
+  });
+
+  res.json({url: authorizeUrl});
+}
